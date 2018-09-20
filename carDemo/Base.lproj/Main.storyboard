@@ -1,24 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xLL-oN-r6O">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="carDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OBv-Kb-waf"/>
+                        <viewControllerLayoutGuide type="bottom" id="a3b-gQ-DU5"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDz-jc-kbo">
+                                <rect key="frame" x="146" y="318.5" width="83" height="30"/>
+                                <state key="normal" title="Car Position"/>
+                                <connections>
+                                    <action selector="didPressedMap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kNp-1Z-IK2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-nW-Rro">
+                                <rect key="frame" x="161" y="356" width="53" height="30"/>
+                                <state key="normal" title="Car List"/>
+                                <connections>
+                                    <action selector="didPressedList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K96-fR-yHg"/>
+                                    <action selector="didPressedMap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dHB-Uo-dAk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="pDz-jc-kbo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KZ7-JE-tlI"/>
+                            <constraint firstItem="Jcb-nW-Rro" firstAttribute="top" secondItem="pDz-jc-kbo" secondAttribute="bottom" constant="7.5" id="VRG-nH-13a"/>
+                            <constraint firstItem="Jcb-nW-Rro" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rdY-wV-9R8"/>
+                            <constraint firstItem="pDz-jc-kbo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v0J-8P-x1X"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ORS-Mk-S3h"/>
+                    <connections>
+                        <outlet property="btnCarList" destination="Jcb-nW-Rro" id="edM-Vj-0Ty"/>
+                        <outlet property="btnMap" destination="pDz-jc-kbo" id="JbQ-Nh-TaO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="510" y="8"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FaL-BV-V5b">
+            <objects>
+                <navigationController id="xLL-oN-r6O" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1YI-pS-1pe">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="d8C-8o-2dg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5z8-7G-d64" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-298" y="8"/>
         </scene>
     </scenes>
 </document>
